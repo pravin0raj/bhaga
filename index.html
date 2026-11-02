@@ -105,7 +105,7 @@
             <span class="text-xs uppercase tracking-widest text-pink-300 font-semibold opacity-80">A Journey for You</span>
         </div>
         <div id="stepCounter" class="text-xs px-3 py-1 rounded-full bg-white/10 text-pink-200 border border-white/10">
-            Step 1 of 3
+            Step 1 of 4
         </div>
     </header>
 
@@ -121,7 +121,7 @@
 
                 <span class="text-pink-400 text-sm font-medium tracking-wide uppercase">Private Link • Just For You</span>
                 <h1 class="font-serif-title text-3xl sm:text-4xl font-semibold mt-2 mb-3 text-white">
-                    Hey, Special One...
+                    Hey, Sindhu...
                 </h1>
                 <p class="text-sm sm:text-base text-pink-100/70 leading-relaxed font-normal mb-8">
                     Since you're not on WhatsApp and we keep our chats simple, I created this little space just to show you something meaningful. Ready to explore?
@@ -160,33 +160,31 @@
             </div>
         </section>
 
-        <!-- ================= STEP 3: VIDEO REVEAL & LETTER ================= -->
+        <!-- ================= STEP 3: VIDEO 1 REVEAL & LETTER ================= -->
         <section id="step3" class="stage-transition stage-hidden w-full flex flex-col items-center">
             <div class="glass-card rounded-3xl p-4 sm:p-6 w-full border border-rose-500/30">
                 <div class="flex items-center justify-between mb-4 px-1">
                     <div class="flex items-center gap-2">
                         <i data-lucide="film" class="w-4 h-4 text-pink-400"></i>
-                        <span class="text-xs font-semibold uppercase tracking-wider text-pink-200">Our Special Clip</span>
+                        <span class="text-xs font-semibold uppercase tracking-wider text-pink-200">Part 1 Clip</span>
                     </div>
                     <span class="text-xs text-pink-300/70 font-mono">reference 1.mp4</span>
                 </div>
 
-                <!-- Custom Styled Video Container -->
+                <!-- Video 1 Container -->
                 <div class="relative w-full rounded-2xl overflow-hidden bg-black/60 aspect-[9/16] max-h-[460px] flex items-center justify-center border border-white/10 shadow-2xl">
-                    <video id="specialVideo" class="w-full h-full object-cover" preload="metadata" playsinline controls>
-                        <!-- Points directly to 'reference 1.mp4' or .mov in the same directory -->
+                    <video id="specialVideo1" class="w-full h-full object-cover" preload="metadata" playsinline controls>
                         <source src="reference 1.mp4" type="video/mp4">
                         <source src="reference%201.mp4" type="video/mp4">
                         <source src="reference 1.MOV" type="video/quicktime">
                         Your browser does not support the video tag.
                     </video>
 
-                    <!-- Fallback / Helper overlay if the video isn't found in current directory -->
-                    <div id="videoFallbackNotice" class="absolute inset-0 bg-neutral-900/90 hidden flex-col items-center justify-center p-6 text-center">
+                    <div id="videoFallbackNotice1" class="absolute inset-0 bg-neutral-900/90 hidden flex-col items-center justify-center p-6 text-center">
                         <i data-lucide="alert-circle" class="w-10 h-10 text-pink-400 mb-2"></i>
                         <h4 class="text-white font-medium text-sm mb-1">Make sure video is in folder!</h4>
                         <p class="text-xs text-pink-200/70">
-                            Save your video with the name <code class="text-pink-300 bg-black/40 px-1 py-0.5 rounded">reference 1.mp4</code> in the same folder as this HTML file.
+                            Save your video with the name <code class="text-pink-300 bg-black/40 px-1 py-0.5 rounded">reference 1.mp4</code> in the same folder.
                         </p>
                     </div>
                 </div>
@@ -199,7 +197,64 @@
 
                     <h3 class="font-handwritten text-2xl text-pink-300 mb-2">A small note for you...</h3>
                     <p class="text-sm text-pink-100/80 leading-relaxed font-light mb-4">
-                        "Even though we don’t talk on WhatsApp and usually just catch up through simple messages, having you around makes everything a little more warm and meaningful. Thank you for being my favourite person to share moments with."
+                        "Even though we don’t talk on WhatsApp and usually just catch up through simple messages, having you around makes everything a little more warm and meaningful."
+                    </p>
+                    <div class="flex items-center justify-between pt-2 border-t border-white/10">
+                        <span class="text-xs text-pink-300/60 font-medium">Part one of our memory</span>
+                        <div class="flex items-center gap-1 text-pink-400">
+                            <i data-lucide="heart" class="w-4 h-4 fill-pink-400"></i>
+                            <span class="text-xs font-semibold">Special</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Button to advance to Reference 2 -->
+                <button onclick="goToStep(4)" class="glow-btn w-full mt-4 py-3.5 px-6 rounded-2xl bg-gradient-to-r from-pink-500 via-rose-500 to-purple-600 text-white font-semibold flex items-center justify-center gap-2 text-sm">
+                    <span>Watch Part 2 Next</span>
+                    <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- ================= STEP 4: VIDEO 2 REVEAL ================= -->
+        <section id="step4" class="stage-transition stage-hidden w-full flex flex-col items-center">
+            <div class="glass-card rounded-3xl p-4 sm:p-6 w-full border border-rose-500/30">
+                <div class="flex items-center justify-between mb-4 px-1">
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="film" class="w-4 h-4 text-purple-400"></i>
+                        <span class="text-xs font-semibold uppercase tracking-wider text-purple-200">Part 2 Clip</span>
+                    </div>
+                    <span class="text-xs text-pink-300/70 font-mono">reference 2.mp4</span>
+                </div>
+
+                <!-- Video 2 Container -->
+                <div class="relative w-full rounded-2xl overflow-hidden bg-black/60 aspect-[9/16] max-h-[460px] flex items-center justify-center border border-white/10 shadow-2xl">
+                    <video id="specialVideo2" class="w-full h-full object-cover" preload="metadata" playsinline controls>
+                        <!-- Looks for 'reference 2.mp4' or 'reference 2.MOV' in the same directory -->
+                        <source src="reference 2.mp4" type="video/mp4">
+                        <source src="reference%202.mp4" type="video/mp4">
+                        <source src="reference 2.MOV" type="video/quicktime">
+                        Your browser does not support the video tag.
+                    </video>
+
+                    <div id="videoFallbackNotice2" class="absolute inset-0 bg-neutral-900/90 hidden flex-col items-center justify-center p-6 text-center">
+                        <i data-lucide="alert-circle" class="w-10 h-10 text-pink-400 mb-2"></i>
+                        <h4 class="text-white font-medium text-sm mb-1">Make sure video 2 is in folder!</h4>
+                        <p class="text-xs text-pink-200/70">
+                            Save your second video as <code class="text-pink-300 bg-black/40 px-1 py-0.5 rounded">reference 2.mp4</code> in the repository folder.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Final Note Section -->
+                <div class="mt-6 p-5 sm:p-6 rounded-2xl bg-white/[0.04] border border-white/10 relative overflow-hidden">
+                    <div class="absolute -right-4 -bottom-4 text-pink-500/10 pointer-events-none">
+                        <i data-lucide="sparkles" class="w-24 h-24"></i>
+                    </div>
+
+                    <h3 class="font-handwritten text-2xl text-pink-300 mb-2">And one last thing...</h3>
+                    <p class="text-sm text-pink-100/80 leading-relaxed font-light mb-4">
+                        "Thank you for being my favourite person to share moments with. Whenever you need a reminder of how much you matter, you can always come back here or to me ❤️"
                     </p>
                     <div class="flex items-center justify-between pt-2 border-t border-white/10">
                         <span class="text-xs text-pink-300/60 font-medium">Made with all my heart</span>
@@ -210,11 +265,17 @@
                     </div>
                 </div>
 
-                <!-- Restart / Replay journey button -->
-                <button onclick="goToStep(1)" class="w-full mt-4 py-3 rounded-xl bg-white/5 hover:bg-white/10 text-pink-200 text-xs font-medium flex items-center justify-center gap-2 border border-white/5 transition">
-                    <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i>
-                    <span>Revisit from the beginning</span>
-                </button>
+                <!-- Controls to switch back to video 1 or replay from start -->
+                <div class="flex gap-2 w-full mt-4">
+                    <button onclick="goToStep(3)" class="flex-1 py-3 rounded-xl bg-white/5 hover:bg-white/10 text-pink-200 text-xs font-medium flex items-center justify-center gap-2 border border-white/5 transition">
+                        <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
+                        <span>Back to Clip 1</span>
+                    </button>
+                    <button onclick="goToStep(1)" class="flex-1 py-3 rounded-xl bg-white/5 hover:bg-white/10 text-pink-200 text-xs font-medium flex items-center justify-center gap-2 border border-white/5 transition">
+                        <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i>
+                        <span>Start Over</span>
+                    </button>
+                </div>
             </div>
         </section>
 
@@ -227,58 +288,53 @@
 
     <!-- Interactive Navigation and Animations Script -->
     <script>
-        // Initialize Lucide Icons
         lucide.createIcons();
 
         let currentStep = 1;
-        const totalSteps = 3;
+        const totalSteps = 4;
 
-        // Navigation between steps
         function goToStep(step) {
             const currentEl = document.getElementById(`step${currentStep}`);
             const nextEl = document.getElementById(`step${step}`);
 
             if (!nextEl) return;
 
-            // Fade out current
+            // Pause both videos when navigating away to prevent audio overlap
+            const vid1 = document.getElementById('specialVideo1');
+            const vid2 = document.getElementById('specialVideo2');
+            if (vid1) vid1.pause();
+            if (vid2) vid2.pause();
+
             currentEl.classList.remove('stage-visible');
             currentEl.classList.add('stage-hidden');
 
-            // Fade in next
             setTimeout(() => {
                 nextEl.classList.remove('stage-hidden');
                 nextEl.classList.add('stage-visible');
                 currentStep = step;
                 
-                // Update header step counter
                 document.getElementById('stepCounter').innerText = `Step ${step} of ${totalSteps}`;
 
-                // Trigger animations or video play on final step
                 if (step === 3) {
                     launchCelebration();
-                    const vid = document.getElementById('specialVideo');
-                    if (vid) {
-                        vid.play().catch(e => {
-                            console.log('Auto-play prevented by browser policy; user can click play.');
-                        });
-                    }
+                    if (vid1) vid1.play().catch(() => {});
+                } else if (step === 4) {
+                    launchCelebration();
+                    if (vid2) vid2.play().catch(() => {});
                 }
+
                 lucide.createIcons();
             }, 250);
         }
 
-        // Heart Unlock Sequence in Step 2
         function triggerUnlock() {
             const btn = document.getElementById('unlockHeartBtn');
-            const icon = document.getElementById('heartIcon');
             const status = document.getElementById('unlockStatus');
 
-            // Visual feedback & expansion animation
             btn.classList.add('scale-125');
             status.innerText = "Unlocking your surprise...";
             status.classList.add('text-pink-400');
 
-            // Floating hearts shower
             for (let i = 0; i < 16; i++) {
                 setTimeout(() => {
                     createHeartParticle(
@@ -288,13 +344,11 @@
                 }, i * 50);
             }
 
-            // Move to Step 3 (Video Screen)
             setTimeout(() => {
                 goToStep(3);
             }, 1000);
         }
 
-        // Floating Heart Particles Generator
         function createHeartParticle(x, y) {
             const heart = document.createElement('div');
             heart.classList.add('particle');
@@ -303,12 +357,9 @@
             heart.style.top = `${y}px`;
             document.body.appendChild(heart);
 
-            setTimeout(() => {
-                heart.remove();
-            }, 3900);
+            setTimeout(() => heart.remove(), 3900);
         }
 
-        // Celebration burst on Step 3
         function launchCelebration() {
             const emojis = ['✨', '💖', '💌', '🌸', '⭐', '❤️'];
             for (let i = 0; i < 25; i++) {
@@ -326,13 +377,27 @@
             }
         }
 
-        // Check video load status & show fallback notice if file missing
-        const videoElement = document.getElementById('specialVideo');
-        if (videoElement) {
-            videoElement.addEventListener('error', function() {
-                const notice = document.getElementById('videoFallbackNotice');
-                if (notice) notice.classList.remove('hidden');
-                if (notice) notice.classList.add('flex');
+        // Error listener for Video 1
+        const videoElement1 = document.getElementById('specialVideo1');
+        if (videoElement1) {
+            videoElement1.addEventListener('error', function() {
+                const notice = document.getElementById('videoFallbackNotice1');
+                if (notice) {
+                    notice.classList.remove('hidden');
+                    notice.classList.add('flex');
+                }
+            }, true);
+        }
+
+        // Error listener for Video 2
+        const videoElement2 = document.getElementById('specialVideo2');
+        if (videoElement2) {
+            videoElement2.addEventListener('error', function() {
+                const notice = document.getElementById('videoFallbackNotice2');
+                if (notice) {
+                    notice.classList.remove('hidden');
+                    notice.classList.add('flex');
+                }
             }, true);
         }
     </script>
