@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Special Journey For You ✨</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: radial-gradient(circle at top right, #2d192f, #151120 70%, #0d0a14);
+            color: #f3e8f4;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        .font-handwritten {
+            font-family: 'Caveat', cursive;
+        }
+
+        .font-serif-title {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Glassmorphism Card Style */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .glow-btn {
+            box-shadow: 0 0 25px rgba(244, 114, 182, 0.35);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glow-btn:hover {
+            box-shadow: 0 0 35px rgba(244, 114, 182, 0.6);
+            transform: translateY(-2px);
+        }
+
+        /* Floating background shapes */
+        .floating-shape {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.15;
+            pointer-events: none;
+            z-index: 0;
+            animation: pulse-slow 8s infinite alternate ease-in-out;
+        }
+
+        @keyframes pulse-slow {
+            0% { transform: scale(1) translate(0px, 0px); opacity: 0.12; }
+            100% { transform: scale(1.15) translate(20px, -20px); opacity: 0.22; }
+        }
+
+        /* Fade transitions */
+        .stage-transition {
+            transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .stage-hidden {
+            display: none !important;
+            opacity: 0;
+            transform: translateY(20px) scale(0.98);
+        }
+        .stage-visible {
+            display: flex !important;
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        /* Confetti / heart particle animation */
+        @keyframes floatUp {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+        }
+        .particle {
+            position: fixed;
+            pointer-events: none;
+            animation: floatUp 4s linear forwards;
+            z-index: 99;
+        }
+    </style>
+</head>
+<body class="relative flex flex-col justify-between items-center min-h-screen p-4 sm:p-6 select-none">
+
+    <!-- Background glowing orbs -->
+    <div class="floating-shape w-72 h-72 sm:w-96 sm:h-96 bg-pink-500 top-10 left-1/4"></div>
+    <div class="floating-shape w-60 h-60 sm:w-80 sm:h-80 bg-purple-600 bottom-10 right-1/4"></div>
+
+    <!-- Header / Brand Progress Indicator -->
+    <header class="w-full max-w-xl mx-auto flex items-center justify-between py-3 relative z-10">
+        <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-pink-400 animate-ping"></span>
+            <span class="text-xs uppercase tracking-widest text-pink-300 font-semibold opacity-80">A Journey for You</span>
+        </div>
+        <div id="stepCounter" class="text-xs px-3 py-1 rounded-full bg-white/10 text-pink-200 border border-white/10">
+            Step 1 of 3
+        </div>
+    </header>
+
+    <!-- Main Container Area -->
+    <main class="w-full max-w-lg my-auto relative z-10 flex flex-col items-center">
+
+        <!-- ================= STEP 1: WELCOME SCREEN ================= -->
+        <section id="step1" class="stage-transition stage-visible w-full flex flex-col items-center text-center">
+            <div class="glass-card rounded-3xl p-6 sm:p-8 w-full border border-pink-500/20">
+                <div class="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-5 rounded-2xl bg-gradient-to-tr from-pink-500 to-rose-400 flex items-center justify-center text-white shadow-lg shadow-pink-500/30">
+                    <i data-lucide="sparkles" class="w-8 h-8 sm:w-10 sm:h-10 animate-bounce"></i>
+                </div>
+
+                <span class="text-pink-400 text-sm font-medium tracking-wide uppercase">Private Link • Just For You</span>
+                <h1 class="font-serif-title text-3xl sm:text-4xl font-semibold mt-2 mb-3 text-white">
+                    Hey, Special One...
+                </h1>
+                <p class="text-sm sm:text-base text-pink-100/70 leading-relaxed font-normal mb-8">
+                    Since you're not on WhatsApp and we keep our chats simple, I created this little space just to show you something meaningful. Ready to explore?
+                </p>
+
+                <button onclick="goToStep(2)" class="glow-btn w-full py-3.5 px-6 rounded-2xl bg-gradient-to-r from-pink-500 via-rose-500 to-purple-600 text-white font-semibold flex items-center justify-center gap-2 text-base">
+                    <span>Let's Begin</span>
+                    <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- ================= STEP 2: INTERACTIVE HEART UNLOCK ================= -->
+        <section id="step2" class="stage-transition stage-hidden w-full flex flex-col items-center text-center">
+            <div class="glass-card rounded-3xl p-6 sm:p-8 w-full border border-pink-500/20 flex flex-col items-center">
+                <span class="text-xs uppercase font-semibold text-pink-400 tracking-wider mb-2">Tap to Open</span>
+                <h2 class="font-serif-title text-2xl sm:text-3xl font-semibold text-white mb-2">
+                    Open Your Gift
+                </h2>
+                <p class="text-sm text-pink-100/70 mb-8 max-w-sm">
+                    Tap the glowing heart to unlock what I prepared for you.
+                </p>
+
+                <!-- Interactive Heart Button -->
+                <div class="relative my-4">
+                    <button id="unlockHeartBtn" onclick="triggerUnlock()" class="w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-gradient-to-tr from-rose-500 to-pink-500 flex items-center justify-center shadow-2xl shadow-pink-500/50 hover:scale-110 active:scale-95 transition-all duration-300 group">
+                        <i data-lucide="heart" id="heartIcon" class="w-11 h-11 sm:w-13 sm:h-13 text-white fill-white animate-pulse"></i>
+                    </button>
+                    <!-- Ripple effect rings -->
+                    <span class="absolute inset-0 rounded-full border-2 border-pink-400/50 animate-ping pointer-events-none"></span>
+                </div>
+
+                <p id="unlockStatus" class="text-xs text-pink-200/80 font-medium mt-4">
+                    Touch the heart to reveal the moment 💖
+                </p>
+            </div>
+        </section>
+
+        <!-- ================= STEP 3: VIDEO REVEAL & LETTER ================= -->
+        <section id="step3" class="stage-transition stage-hidden w-full flex flex-col items-center">
+            <div class="glass-card rounded-3xl p-4 sm:p-6 w-full border border-rose-500/30">
+                <div class="flex items-center justify-between mb-4 px-1">
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="film" class="w-4 h-4 text-pink-400"></i>
+                        <span class="text-xs font-semibold uppercase tracking-wider text-pink-200">Our Special Clip</span>
+                    </div>
+                    <span class="text-xs text-pink-300/70 font-mono">reference 1.mp4</span>
+                </div>
+
+                <!-- Custom Styled Video Container -->
+                <div class="relative w-full rounded-2xl overflow-hidden bg-black/60 aspect-[9/16] max-h-[460px] flex items-center justify-center border border-white/10 shadow-2xl">
+                    <video id="specialVideo" class="w-full h-full object-cover" preload="metadata" playsinline controls>
+                        <!-- Points directly to 'reference 1.mp4' or .mov in the same directory -->
+                        <source src="reference 1.mp4" type="video/mp4">
+                        <source src="reference%201.mp4" type="video/mp4">
+                        <source src="reference 1.MOV" type="video/quicktime">
+                        Your browser does not support the video tag.
+                    </video>
+
+                    <!-- Fallback / Helper overlay if the video isn't found in current directory -->
+                    <div id="videoFallbackNotice" class="absolute inset-0 bg-neutral-900/90 hidden flex-col items-center justify-center p-6 text-center">
+                        <i data-lucide="alert-circle" class="w-10 h-10 text-pink-400 mb-2"></i>
+                        <h4 class="text-white font-medium text-sm mb-1">Make sure video is in folder!</h4>
+                        <p class="text-xs text-pink-200/70">
+                            Save your video with the name <code class="text-pink-300 bg-black/40 px-1 py-0.5 rounded">reference 1.mp4</code> in the same folder as this HTML file.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Personal Letter Section -->
+                <div class="mt-6 p-5 sm:p-6 rounded-2xl bg-white/[0.04] border border-white/10 relative overflow-hidden">
+                    <div class="absolute -right-4 -bottom-4 text-pink-500/10 pointer-events-none">
+                        <i data-lucide="quote" class="w-24 h-24"></i>
+                    </div>
+
+                    <h3 class="font-handwritten text-2xl text-pink-300 mb-2">A small note for you...</h3>
+                    <p class="text-sm text-pink-100/80 leading-relaxed font-light mb-4">
+                        "Even though we don’t talk on WhatsApp and usually just catch up through simple messages, having you around makes everything a little more warm and meaningful. Thank you for being my favourite person to share moments with."
+                    </p>
+                    <div class="flex items-center justify-between pt-2 border-t border-white/10">
+                        <span class="text-xs text-pink-300/60 font-medium">Made with all my heart</span>
+                        <div class="flex items-center gap-1 text-pink-400">
+                            <i data-lucide="heart" class="w-4 h-4 fill-pink-400"></i>
+                            <span class="text-xs font-semibold">Forever</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Restart / Replay journey button -->
+                <button onclick="goToStep(1)" class="w-full mt-4 py-3 rounded-xl bg-white/5 hover:bg-white/10 text-pink-200 text-xs font-medium flex items-center justify-center gap-2 border border-white/5 transition">
+                    <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i>
+                    <span>Revisit from the beginning</span>
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer Note -->
+    <footer class="w-full max-w-xl text-center py-4 relative z-10">
+        <p class="text-xs text-pink-200/40">Keep this link safe • Just between the two of us</p>
+    </footer>
+
+    <!-- Interactive Navigation and Animations Script -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        let currentStep = 1;
+        const totalSteps = 3;
+
+        // Navigation between steps
+        function goToStep(step) {
+            const currentEl = document.getElementById(`step${currentStep}`);
+            const nextEl = document.getElementById(`step${step}`);
+
+            if (!nextEl) return;
+
+            // Fade out current
+            currentEl.classList.remove('stage-visible');
+            currentEl.classList.add('stage-hidden');
+
+            // Fade in next
+            setTimeout(() => {
+                nextEl.classList.remove('stage-hidden');
+                nextEl.classList.add('stage-visible');
+                currentStep = step;
+                
+                // Update header step counter
+                document.getElementById('stepCounter').innerText = `Step ${step} of ${totalSteps}`;
+
+                // Trigger animations or video play on final step
+                if (step === 3) {
+                    launchCelebration();
+                    const vid = document.getElementById('specialVideo');
+                    if (vid) {
+                        vid.play().catch(e => {
+                            console.log('Auto-play prevented by browser policy; user can click play.');
+                        });
+                    }
+                }
+                lucide.createIcons();
+            }, 250);
+        }
+
+        // Heart Unlock Sequence in Step 2
+        function triggerUnlock() {
+            const btn = document.getElementById('unlockHeartBtn');
+            const icon = document.getElementById('heartIcon');
+            const status = document.getElementById('unlockStatus');
+
+            // Visual feedback & expansion animation
+            btn.classList.add('scale-125');
+            status.innerText = "Unlocking your surprise...";
+            status.classList.add('text-pink-400');
+
+            // Floating hearts shower
+            for (let i = 0; i < 16; i++) {
+                setTimeout(() => {
+                    createHeartParticle(
+                        btn.getBoundingClientRect().left + btn.offsetWidth / 2 + (Math.random() * 50 - 25),
+                        btn.getBoundingClientRect().top + btn.offsetHeight / 2
+                    );
+                }, i * 50);
+            }
+
+            // Move to Step 3 (Video Screen)
+            setTimeout(() => {
+                goToStep(3);
+            }, 1000);
+        }
+
+        // Floating Heart Particles Generator
+        function createHeartParticle(x, y) {
+            const heart = document.createElement('div');
+            heart.classList.add('particle');
+            heart.innerHTML = `<span style="font-size: ${Math.floor(Math.random() * 14 + 16)}px;">💖</span>`;
+            heart.style.left = `${x}px`;
+            heart.style.top = `${y}px`;
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 3900);
+        }
+
+        // Celebration burst on Step 3
+        function launchCelebration() {
+            const emojis = ['✨', '💖', '💌', '🌸', '⭐', '❤️'];
+            for (let i = 0; i < 25; i++) {
+                setTimeout(() => {
+                    const el = document.createElement('div');
+                    el.classList.add('particle');
+                    el.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+                    el.style.left = `${Math.random() * 90 + 5}vw`;
+                    el.style.top = `90vh`;
+                    el.style.fontSize = `${Math.floor(Math.random() * 18 + 14)}px`;
+                    document.body.appendChild(el);
+
+                    setTimeout(() => el.remove(), 4000);
+                }, i * 80);
+            }
+        }
+
+        // Check video load status & show fallback notice if file missing
+        const videoElement = document.getElementById('specialVideo');
+        if (videoElement) {
+            videoElement.addEventListener('error', function() {
+                const notice = document.getElementById('videoFallbackNotice');
+                if (notice) notice.classList.remove('hidden');
+                if (notice) notice.classList.add('flex');
+            }, true);
+        }
+    </script>
+</body>
+</html>
